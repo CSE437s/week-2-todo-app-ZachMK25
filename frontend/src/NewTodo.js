@@ -1,5 +1,6 @@
 // import './NewTodo.css';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 function NewTodo() {
 
@@ -11,6 +12,10 @@ function NewTodo() {
                 e.preventDefault()
                 // addTodo(name)
                 console.log(name)
+
+                const res = axios.post("localhost:16969/api/todos/addtask")
+
+
                 setName("")
             }}>
                 <input type="text" id="add-task-name" className="text-entry" placeholder="Add a new task!" value={name} onChange={(event) => setName(event.target.value)}/>
